@@ -5,6 +5,7 @@ import CommonOutlet from "./CommonOutlet";
 import { routePath } from "./routepath";
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -34,6 +35,7 @@ const AppRoutes = () => {
         >
           <Route path={routePath.root} element={<Home />} />
           <Route path={routePath.about} element={<About />} />
+          <Route path={routePath.contact} element={<Contact />} />
         </Route>
       </Routes>
     </Router>
