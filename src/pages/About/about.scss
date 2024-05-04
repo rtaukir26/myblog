@@ -1,0 +1,35 @@
+.about-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .about-left {
+    width: 50%;
+  }
+  .about-right {
+    text-align: center;
+    width: 50%;
+    padding-left: 30px;
+    .about-img {
+      width: 75%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .form-con {
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px $shadow;
+      width: 80%;
+      margin: auto;
+    }
+    .form-control {
+      width: 50%;
+      &:focus {
+        box-shadow: none;
+      }
+      &.error-field {
+        border: 1px solid $error;
+      }
+    }
+  }
+}

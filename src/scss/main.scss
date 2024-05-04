@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import "./common.scss";
+@import "./light-theme-files.scss";
+@import "./dark-theme-files.scss";
+body {
+  // font-family: "Facto";
+  // background: linear-gradient(
+  //   315deg,
+  //   #7661b6,
+  //   #f4bf8e 20.83%,
+  //   #405cad 52.6%,
+  //   #6cb8ff 76.56%,
+  //   #2d539d
+  // );
+  // background-attachment: fixed;
+  // padding: 30px;
+  background: rgb(241, 241, 240);
+  font-family: "Roboto", sans-serif !important;
+  transition: all 0.5s;
+  &.dark-theme {
+    background-color: rgb(20, 20, 20);
+    color: $text-color;
+  }
+}
