@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import BrandIcon from "../../assets/images/enterprise.png";
-import LightIcon from "../../assets/images/light-mode.png";
-import darkIcon from "../../assets/images/dark-mode.png";
 import { routePath } from "../../routes/routepath";
 
 const Header = () => {
@@ -122,7 +120,6 @@ const Header = () => {
                   isLightTheme ? "light-theme-ball" : "dark-theme-ball"
                 }`}
               >
-                {/* <img src={LightIcon} alt="theme" /> */}
               </div>
             </div>
           </div>
