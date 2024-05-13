@@ -194,7 +194,15 @@ const Contact = () => {
                         onFocus={handleFocus}
                       />
                     </div>
-                    <button onClick={handleClickSubmit}>Submit</button>
+
+                    <div className="btn-grp">
+                      {/* For Animation Second - required span tag*/}
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <button onClick={handleClickSubmit}>Submit</button>
+                    </div>
                   </form>
                 </div>
               </div>

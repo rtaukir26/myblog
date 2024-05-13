@@ -1,0 +1,25 @@
+//mobile -- extra small
+// @mixin for-mobile {
+//   @media (max-width: 576px) {
+//     @content;
+//   }
+// }
+//mobile -- small
+@mixin for-mobile {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+//tab -- medium
+// @mixin for-tab {
+//   @media (max-width: 768px) {
+//     @content;
+//   }
+// }
+//tab/small laptop --large
+@mixin for-large {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}

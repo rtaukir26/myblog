@@ -1,6 +1,9 @@
 .contact-wrapper {
   height: 100%;
   background: #00000054;
+  @include for-mobile {
+    background: #0e5353;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -13,6 +16,9 @@
     background-position: center;
     opacity: 0.7;
     z-index: -1;
+    @include for-mobile {
+      content: none;
+    }
   }
   .contact-header {
     padding: 20px 0px;
@@ -24,12 +30,22 @@
       width: 50%;
       margin: auto;
       color: $text-white-only;
+      @include for-mobile {
+        width: 85%;
+      }
     }
   }
   .contact-body {
     display: flex;
     justify-content: space-evenly;
     margin-top: 10px;
+    @include for-mobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #0e5353;
+    }
     .contact-left {
       display: flex;
       justify-content: start;
@@ -37,6 +53,9 @@
       padding: 20px;
       border-radius: 10px;
       width: 50%;
+      @include for-mobile {
+        width: 100%;
+      }
       .contact-left-wrapper {
         margin: auto;
       }
@@ -56,8 +75,11 @@
     }
     .contact-right {
       width: 50%;
+      @include for-mobile {
+        width: 100%;
+      }
       .form-container {
-        form{
+        form {
           width: 85%;
         }
         .form-body {
@@ -68,9 +90,12 @@
           width: 60%;
           padding: 10px;
           border-radius: 5px;
+          @include for-large {
+            width: 70%;
+            font-size: 14px;
+          }
           h6 {
             color: #fff;
-            // font-weight: bold;
             font-size: 18px;
             letter-spacing: 1px;
           }
@@ -78,7 +103,10 @@
         .form-grp {
           position: relative;
           width: 100%;
-          margin-bottom: 15px;
+          margin-bottom: 10px;
+          @include for-large {
+            margin-bottom: 8px;
+          }
           input {
             padding: 5px 10px;
             outline: none;
@@ -133,6 +161,9 @@
             right: 10px;
             width: 25px;
             top: 5px;
+            @include for-large {
+              width: 20px;
+            }
           }
         }
 
@@ -158,14 +189,146 @@
             color: $text-white-only;
           }
         }
-        button {
-          border: none;
-          padding: 5px 10px;
-          width: 100px;
-          border-radius: 20px;
-          background: linear-gradient(45deg, #023474, #38b0bd);
-          color: #ddd;
-          box-shadow: 0px 0px 2px white;
+        .btn-grp {
+          position: relative;
+          display: inline-block;
+          overflow: hidden;
+          padding: 5px;
+          button {
+            position: relative;
+            border: none;
+            padding: 5px 10px;
+            width: 100px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #023474, #38b0bd);
+            color: #ddd;
+            box-shadow: 0px 0px 2px white;
+            outline: none;
+
+            /**first animation*/
+
+            // &::before {
+            //   content: "";
+            //   height: 20px;
+            //   width: 85px;
+            //   background-image: linear-gradient(
+            //     90deg,
+            //     #a740a9,
+            //     #135e55,
+            //     rgb(236, 22, 22)
+            //   );
+            //   position: absolute;
+            //   top: 7px;
+            //   left: 0px;
+            //   border-radius: 50px;
+            //   z-index: -1;
+            //   background: inherit;
+            //   opacity: 0;
+            // }
+            // &:hover::before {
+            //   opacity: 0.3;
+            //   z-index: 1;
+            //   filter: blur(7px);
+            //   background-image: linear-gradient(
+            //     90deg,
+            //     #ff4aae,
+            //     #a9ff8d,
+            //     #bf2d2dba
+            //   );
+            //   animation: glow 5s linear infinite;
+            // }
+          }
+          /**second animation*/
+          &:hover span {
+            &:nth-child(1) {
+              position: absolute;
+              background-image: linear-gradient(45deg, #c3000000, #0078bb);
+              width: 100px;
+              height: 2px;
+              left: 0px;
+              top: 0.5px;
+              animation: animation_span1 2s linear infinite;
+            }
+            &:nth-child(3) {
+              position: absolute;
+              background-image: linear-gradient(45deg, #0078bb, transparent);
+              width: 100px;
+              height: 2px;
+              left: 0px;
+              bottom: -0.5px;
+              animation: animation_span3 2s linear infinite;
+            }
+            &:nth-child(2) {
+              position: absolute;
+              background-image: linear-gradient(45deg, #0078bb, transparent);
+              width: 2px;
+              height: 35px;
+              top: 0px;
+              right: 0px;
+              animation: animation_span2 2s linear infinite;
+              animation-delay: 1s;
+              opacity: 0;
+            }
+            &:nth-child(4) {
+              position: absolute;
+              background-image: linear-gradient(45deg, transparent, #0078bb);
+              width: 2px;
+              height: 35px;
+              top: 0px;
+              left: 0px;
+              animation: animation_span4 2s linear infinite;
+              animation-delay: 1s;
+              opacity: 0;
+            }
+          }
+        }
+        /**For Animation first*/
+        @keyframes glow {
+          0% {
+            background-size: 0%;
+          }
+          100% {
+            background-size: 400%;
+          }
+        }
+        /**For Animation second*/
+        @keyframes animation_span1 {
+          0% {
+            transform: translateX(-100px);
+          }
+          100% {
+            transform: translateX(100px);
+          }
+        }
+
+        @keyframes animation_span3 {
+          0% {
+            transform: translateX(100px);
+          }
+          100% {
+            transform: translateX(-100px);
+          }
+        }
+
+        @keyframes animation_span2 {
+          0% {
+            opacity: 1;
+            transform: translateY(-35px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(35px);
+          }
+        }
+        @keyframes animation_span4 {
+          0% {
+            opacity: 1;
+            transform: translateY(35px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(-35px);
+          }
         }
       }
     }
