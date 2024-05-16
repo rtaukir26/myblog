@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import BrandIcon from "../../assets/images/enterprise.png";
+import BrandIcon from "../../assets/images/brandLogo.avif";
 import { routePath } from "../../routes/routepath";
 
 const Header = () => {
@@ -26,7 +26,7 @@ const Header = () => {
   };
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+      <nav className="navbar navbar-expand-lg header-con">
         <div className="container-fluid">
           <div className="d-flex justify-content-start align-items-center">
             <NavLink className="navbar-brand" to={routePath.root}>

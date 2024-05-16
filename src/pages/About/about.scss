@@ -1,34 +1,162 @@
 .about-wrapper {
+}
+.hero-con {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  .about-left {
-    width: 50%;
+  padding: 20px;
+  @include for-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  .about-right {
-    text-align: center;
+}
+.about-left {
+  width: 50%;
+  @include for-mobile {
+    width: 100%;
+  }
+  .content {
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    p {
+      color: #6b6969;
+      padding-top: 8px;
+    }
+    button {
+      border: none;
+      padding: 8px 15px;
+      border-radius: 30px;
+      background-image: radial-gradient(#96d6ff, #daebfb);
+      box-shadow: 0px 3px 3px pink;
+      width: 140px;
+      font-size: 15px;
+      color: #11475d;
+    }
+  }
+}
+
+.about-right {
+  text-align: center;
+  width: 50%;
+  padding-left: 30px;
+  @include for-mobile {
+    width: 100%;
+  }
+  .about-img {
+    width: 80%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    @include for-mobile {
+      width: 100%;
+    }
+  }
+}
+.form-con {
+  padding: 20px;
+  border-radius: 5px;
+  form {
     width: 50%;
-    padding-left: 30px;
-    .about-img {
-      width: 75%;
-      border-radius: 5px;
-      margin-bottom: 10px;
+    box-shadow: 0px 0px 5px #728382;
+    border-radius: 10px;
+    padding: 20px;
+  }
+}
+.form-control {
+  width: 80%;
+  @include for-mobile {
+    width: 90%;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+  &.error-field {
+    border: 1px solid $error;
+  }
+}
+.vision {
+  padding: 20px;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  img {
+    width: 300px;
+    height: 250px;
+  }
+  .text-div {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-image: linear-gradient(180deg, #c4dcf6c7, #1cafec59);
+    color: #181414;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+    font-size: 12px;
+    transform: translateY(100px);
+    opacity: 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  &:hover .text-div {
+    transform: translateY(0px);
+    opacity: 1;
+    padding: 10px;
+  }
+}
+
+.business-con {
+  &::before {
+    content: "";
+    background-image: url("../../assets/images/partnersBg.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    opacity: 0.95;
+    z-index: -1;
+  }
+  h4 {
+    color: #fff !important;
+    padding: 10px 50px;
+  }
+  .partner-details-con {
+    position: relative;
+    width: 95%;
+    background-image: linear-gradient(
+      45deg,
+      #ec7e11,
+      #c5ddf6,
+      rgba(35, 253, 223, 0.8)
+    );
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    height: 180px;
+    color: #271d1d;
+    p {
+      width: 30%;
     }
-    .form-con {
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 5px $shadow;
-      width: 80%;
-      margin: auto;
-    }
-    .form-control {
-      width: 50%;
-      &:focus {
-        box-shadow: none;
-      }
-      &.error-field {
-        border: 1px solid $error;
+    .partner-profile {
+      position: absolute;
+      top: -30%;
+      right: 15%;
+      width: 20%;
+      text-align: center;
+      box-shadow: -9px -9px 0px #ffab59;
+
+      img {
+        width: 100%;
       }
     }
   }

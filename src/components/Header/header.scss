@@ -1,3 +1,7 @@
+.header-con {
+  background-image: linear-gradient(175deg, #399fe0, transparent);
+}
+
 .brand-logo {
   width: 50px;
 }
@@ -34,7 +38,7 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
-      box-shadow: 0px 0px 10px 5px #0006;
+      box-shadow: 0px 0px 6px #0006;
     }
     &.dark-theme-ball {
       // background-image: linear-gradient(45deg, #b32733, #d1d100);
