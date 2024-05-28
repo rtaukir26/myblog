@@ -8,6 +8,7 @@ import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
 import UnAuthorized from "../pages/UnAuthorized/UnAuthorized";
+import { getUserToken } from "../services/authService";
 
 const AppRoutes = () => {
   useEffect(() => {

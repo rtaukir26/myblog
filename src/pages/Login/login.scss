@@ -40,16 +40,19 @@
         border: transparent;
         background: transparent;
         border-bottom: 2px solid #ff760099;
+        color: #080808;
+        font-weight: bold;
         &::placeholder {
-          color: #d8d5d5;
+          color: #080808;
         }
       }
       img {
         width: 30px;
         top: 10px;
         &.pwdEye {
+          cursor: pointer;
           width: 25px;
-          filter: brightness(0.5) invert(30%);
+          filter: brightness(0.5) invert(10%);
           height: 25px;
         }
       }
@@ -67,6 +70,10 @@ input.form-control:focus {
 .input-error {
   border: 1px solid tomato !important;
 }
-h2,h3,h4,h5,h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #0c0c0c !important;
 }

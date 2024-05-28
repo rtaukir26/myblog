@@ -1,24 +1,26 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { routePath } from "./routepath";
-// import { routePath } from "./routepath";
-// import { createBrowserHistory } from "history";
+import { getUserToken } from "../services/authService";
 
 const PrivateRoute = ({ children }) => {
-  const Navigate = useNavigate();
-  // const userIdToken = getUserIdToken();//get token from localestorage
-  const userIdToken = true;
-  useEffect(() => {
-    if (userIdToken === null || userIdToken === false) {
-      return Navigate(routePath.unAuthorized); // or navigate to Login page
-    }
-  }, []);
+  const navigate = useNavigate();
 
-  // let browerHistory = createBrowserHistory({ window });
-  // let userToken = true;
-  // if (userToken === null) {
-  //   <Navigate to={routePath.login} state={{ from: browerHistory.location }} />;
-  // }
+  const userIdToken = getUserToken(); //get token from localeStorage
+  // const userIdToken = true;
+  // console.log("dd userIdToken", userIdToken);
+
+  // useEffect(() => {
+  //   if (userIdToken === null || userIdToken === false) {
+  //     return navigate(routePath.unAuthorized); // or navigate to Login page
+  //   }
+  // }, []);
+
+  //Note: Don't use useEffect hook because you can access other page after token expired
+  if (userIdToken === null || userIdToken === false) {
+    window.location.href = routePath.unAuthorized; // or navigate to Login page
+  }
+
   return children;
 };
 

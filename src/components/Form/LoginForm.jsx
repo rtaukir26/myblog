@@ -8,6 +8,10 @@ import instaIcon from "../../assets/images/instagram.png";
 import facebookIcon from "../../assets/images/facebook.png";
 import Loader from "../Loader/Loader";
 import { toast } from "react-toastify";
+import { loginUser, setLocaleUserToken } from "../../services/authService";
+import { useNavigate } from "react-router-dom";
+import { routePath } from "../../routes/routepath";
+import { authConstant } from "../../utils/constant";
 
 const LoginForm = () => {
   let initialFormState = {
@@ -15,9 +19,10 @@ const LoginForm = () => {
     password: "",
     errors: {},
   };
-
+  const navigate = useNavigate();
   const [userPostDetails, setUserPostDetails] = useState(initialFormState);
   const [isLoading, setIsLoading] = useState(false);
+  const [isPasswordHidden, setIsPasswordHidden] = useState(true);
 
   //handle change input
   const handleChangeInput = (e) => {
@@ -25,20 +30,35 @@ const LoginForm = () => {
     setUserPostDetails({ ...userPostDetails, [name]: value });
   };
 
-  console.log("userPostDetails main", userPostDetails);
-
   //handle submit - login
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+
     if (isFormValidation()) {
-      console.log("form submmitted", userPostDetails);
-      setUserPostDetails(initialFormState);
+      loginUser(userPostDetails)
+        .then((res) => {
+          // setIsLoading(false);
+          if (res.status && res.status === 200) {
+            setTimeout(() => {
+              toast.success("Logged in successfully");
+              setUserPostDetails(initialFormState);
+              navigate(routePath.root);
+              setLocaleUserToken(res.data.user);
+              setIsLoading(false);
+            }, 1000);
+          } else {
+            toast.error("Invalid email or password");
+            setIsLoading(false);
+          }
+        })
+        .catch((err) => {
+          setIsLoading(false);
+          toast.error(err.message);
+        });
     } else {
       toast.error("Please fill requires fills.");
+      setIsLoading(false);
     }
   };
   // Form validation
@@ -63,6 +83,17 @@ const LoginForm = () => {
     let allErrors = { ...userPostDetails };
     delete allErrors.errors[name];
     setUserPostDetails(allErrors);
+  };
+
+  //handle click hide password
+  const handleClickHidePassword = () => {
+    // const passwordField = document.getElementById("password");
+    // if (passwordField.type === "password") {
+    //   passwordField.type = "text";
+    // } else {
+    //   passwordField.type = "password";
+    // }
+    setIsPasswordHidden(!isPasswordHidden);
   };
   return (
     <>
@@ -96,20 +127,22 @@ const LoginForm = () => {
                 className="position-absolute top-50 start-0 translate-middle-y ms-1"
               />
               <input
-                type="password"
+                type={isPasswordHidden ? "password" : "text"}
                 placeholder="password"
                 className={`w-100 form-control py-2 px-5 ${
                   userPostDetails.errors.password && "input-error"
                 }`}
                 name="password"
+                id="password"
                 value={userPostDetails.password}
                 onChange={handleChangeInput}
                 onFocus={handleFocus}
               />
               <img
-                src={eyeIcon}
+                src={isPasswordHidden ? eyeIcon : eyelashIcon}
                 alt="view"
                 className="pwdEye position-absolute top-50 end-0 translate-middle-y me-2"
+                onClick={handleClickHidePassword}
               />
             </div>
             <div className="d-flex justify-content-between align-items-center mt-4">
