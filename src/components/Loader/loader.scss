@@ -1,0 +1,24 @@
+.loader-container {
+  height: 500px;
+  width: 500px;
+  display: grid;
+  place-items: center;
+
+  .loader-circle {
+    height: 50px;
+    width: 50px;
+    border: 4px solid #ffffff00;
+    border-radius: 50%;
+    border-top-color: tomato;
+    animation: rotate 1s infinite linear;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

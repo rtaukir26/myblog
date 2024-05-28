@@ -35,6 +35,36 @@ h6 {
 img {
   max-width: 100%;
 }
+.page-not-found {
+  height: 100vh;
+  background: aliceblue;
+  background-image: linear-gradient(2deg, #1e1e0e, #00323a);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 2px;
+  .page-not-found-container {
+    img {
+      width: 30%;
+      margin-bottom: 15px;
+    }
+    text-align: center;
+  }
+}
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+//scrollbar
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

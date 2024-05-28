@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { routePath } from "./routepath";
 // import { routePath } from "./routepath";
 // import { createBrowserHistory } from "history";
 
 const PrivateRoute = ({ children }) => {
-  // const Navigate = useNavigate();
+  const Navigate = useNavigate();
   // const userIdToken = getUserIdToken();//get token from localestorage
   const userIdToken = true;
   useEffect(() => {
-    if (userIdToken === null) {
-      return Navigate("/unauthorized"); // or navigate to Login page
+    if (userIdToken === null || userIdToken === false) {
+      return Navigate(routePath.unAuthorized); // or navigate to Login page
     }
   }, []);
+
   // let browerHistory = createBrowserHistory({ window });
   // let userToken = true;
   // if (userToken === null) {

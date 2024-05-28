@@ -1,0 +1,108 @@
+.signup-container {
+  width: 50%;
+  display: grid;
+  place-items: center;
+  .sign-up-wrapper {
+    width: 70%;
+    background: aliceblue;
+    height: 90vh;
+    background-image: linear-gradient(
+      136deg,
+      #232323,
+      #1e0d0d,
+      #471921,
+      #0a2733
+    );
+    border-radius: 8px;
+    padding: 20px;
+    .sign-up-header {
+      display: grid;
+      place-items: center;
+      margin-top: 20px;
+      img {
+        width: 40px;
+        filter: invert(1);
+      }
+      h4 {
+        text-align: center;
+        color: #ffffffe5 !important;
+        margin-top: 5px;
+      }
+    }
+    .form-con {
+      width: 80%;
+      margin: auto;
+    }
+    .form-grp {
+      position: relative;
+      margin-bottom: 15px;
+      &.gender-con {
+        margin-top: 10px;
+        div {
+          display: inline-block;
+          margin-right: 20px;
+        }
+        input {
+          width: auto;
+          cursor: pointer;
+          box-shadow: none;
+        }
+        label {
+          margin-left: 6px;
+          cursor: pointer;
+          color: #ffffffea;
+        }
+      }
+      img {
+        position: absolute;
+        width: 25px;
+        top: 6px;
+        left: 5px;
+        filter: invert(80%);
+      }
+      input {
+        width: 100%;
+        color: #ffffffd6;
+        border-radius: 30px;
+        outline: none;
+        padding: 8px 35px;
+        font-size: 15px;
+        background-image: linear-gradient(45deg, #0d243bc7, #0b0c23);
+        border: none;
+        box-shadow: 0px 0px 3px #fdff78;
+        &::placeholder {
+          color: #ffffffa1;
+        }
+      }
+    }
+    .btn-grp {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #fff9;
+      width: 120%;
+
+      button {
+        width: 120px;
+        padding: 8px 6px;
+        border: none;
+        border-radius: 30px;
+        background: #fff;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: 14px;
+        transition: background 0.3s ease;
+        margin-right: 10px;
+        &:hover {
+          background: #1e6475;
+          color: #fff;
+        //   border: 1px solid #fff;
+        }
+      }
+      small {
+        cursor: pointer;
+      }
+    }
+  }
+}

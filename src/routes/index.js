@@ -6,6 +6,8 @@ import { routePath } from "./routepath";
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
+import Login from "../pages/Login/Login";
+import UnAuthorized from "../pages/UnAuthorized/UnAuthorized";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -26,6 +28,9 @@ const AppRoutes = () => {
   return (
     <Router>
       <Routes>
+        <Route path={routePath.login} element={<Login />} />
+        <Route path={routePath.unAuthorized} element={<UnAuthorized />} />
+
         <Route
           element={
             <PrivateRoute>
