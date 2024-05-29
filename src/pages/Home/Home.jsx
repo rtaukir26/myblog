@@ -12,20 +12,76 @@ import palnt1Icon from "../../assets/images/product/palnt1.jpg";
 import palnt2Icon from "../../assets/images/product/palnt2.jpg";
 import Carousel from "../../components/Carousel/Carousel";
 import ProductCard from "./ProductCard";
+import { getAllProducts } from "../../services/homeService";
+import Loader from "../../components/Loader/Loader";
+import { toast } from "react-toastify";
 
 const Home = () => {
-  // const [activeCarousel, setActiveCarousel] = useState(1);
+  const [allProducts, setAllProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  console.log("allProducts", allProducts);
+  const data = [
+    {
+      name: "tiana",
+      price: 269,
+      photo: {
+        data: { type: "Buffer", data: [20, 143, 310] },
+        contentType: "image/jpeg",
+      },
+    },
+    {
+      name: "cecre",
+      price: 642,
+      photo: {
+        data: { type: "Buffer", data: [21, 123, 390] },
+        contentType: "image/jpeg",
+      },
+    },
+    {
+      name: "acyre",
+      price: 209,
+      photo: {
+        data: { type: "Buffer", data: [20, 123, 390] },
+        contentType: "image/jpeg",
+      },
+    },
+  ];
+  useEffect(() => {
+    const bufferToBase64 = (buffer) => {
+      const binary = buffer.reduce(
+        (acc, byte) => acc + String.fromCharCode(byte),
+        ""
+      );
+      return btoa(binary);
+    };
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const res = await getAllProducts();
+        if (res.status && res.status === 200) {
+          setIsLoading(false);
+          const modifiedData = res.data.product.map((product) => {
+            const base64String = bufferToBase64(product.photo.data.data);
+            const imgSrc = `data:${product.photo.contentType};base64,${base64String}`;
+            return { ...product, imgSrc };
+          });
+          setAllProducts(modifiedData);
+        } else {
+          setIsLoading(false);
+          toast.error("Something went wrong");
+        }
+      } catch (err) {
+        setIsLoading(false);
+        toast.error("Something went wrong");
+      }
+    };
 
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     setActiveCarousel((prev) => (prev === 1 ? 2 : 1));
-  //   }, 2000); // 5000 milliseconds = 5 seconds
-
-  //   return () => clearInterval(intervalId);
-  // }, []);
+    fetchData();
+  }, []);
 
   return (
     <div className="main-body-container">
+      <Loader isLoading={isLoading} />
       <div className="body-wrapper">
         <div className="home-wrapper">
           {/* carousel */}
@@ -73,36 +129,13 @@ const Home = () => {
             </div>
             {/* body - product card*/}
             <div className="body-content">
-              <ProductCard
-                img={palnt2Icon}
-                description="Popuplar plant for home"
-                price="773"
-              />
-              <ProductCard
-                img={watch1Icon}
-                description="Popuplar plant for home"
-                price="819"
-              />
-              <ProductCard
-                img={light1Icon}
-                description="Popuplar plant for home"
-                price="383"
-              />
-              <ProductCard
-                img={palnt1Icon}
-                description="Popuplar plant for home"
-                price="675"
-              />
-              <ProductCard
-                img={watch2Icon}
-                description="Popuplar plant for home"
-                price="839"
-              />
-              <ProductCard
-                img={light2Icon}
-                description="Popuplar plant for home"
-                price="372"
-              />
+              {allProducts?.length > 0 && !isLoading > 0 ? (
+                <>
+                  {allProducts?.map((product) => (
+                    <ProductCard key={product._id} product={product} />
+                  ))}
+                </>
+              ) : null}
             </div>
           </div>
         </div>

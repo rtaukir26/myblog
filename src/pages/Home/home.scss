@@ -1,5 +1,6 @@
 .main-body-container {
   height: calc(100vh - 77px);
+  overflow-x: hidden;
 }
 .body-wrapper {
   height: 100%;
@@ -71,6 +72,22 @@
         display: block;
         font-size: 15px;
         padding-left: 10px;
+        color: #433838;
+        &#truncate {
+          width: 95%;
+          color: #4e4c4c;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          height: calc(1.2em * 2);
+          line-height: 1.2em;
+        }
+        &#price {
+          color: #464343;
+          font-weight: bold;
+        }
       }
       img {
         max-width: 100%;
@@ -81,12 +98,26 @@
 
     .product-info {
       position: absolute;
+      display: flex;
+      justify-content: start;
       opacity: 0;
-      transition: all 0.5s ease;
+      width: 250%;
+      height: 300px;
+      background-image: linear-gradient(45deg, #1a5d69f2, #d5d5d5);
+      top: 0;
+      left: -25%;
+      z-index: -1;
+      padding: 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
       .info-img-div {
-        width: 50%;
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          min-width: 100%;
+          min-height: 100%;
+        }
       }
-
       .product-content {
         width: 50%;
         margin-left: 10px;
@@ -141,28 +172,10 @@
         }
       }
     }
-    &:hover {
-      .product-info {
-        position: absolute;
-        opacity: 1;
-        height: 280px;
-        width: 500px;
-        background-image: linear-gradient(45deg, #1a5d69f2, #d5d5d5);
-        top: 0;
-        left: -25%;
-        z-index: 1;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 9px #ababab;
-        .info-img-div {
-          img {
-            max-width: 100%;
-            max-height: 100%;
-            min-width: 100%;
-            min-height: 100%;
-          }
-        }
-      }
+
+    &:hover .product-info {
+      opacity: 1;
+      z-index: 999;
     }
   }
 }

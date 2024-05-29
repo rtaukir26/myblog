@@ -58,7 +58,7 @@ const Carousel = (props) => {
           </div>
         </div>
 
-        <button
+        {/* <button
           className="carousel-control-prev"
           type="button"
           data-bs-target={`#${props.indicatorId}`}
@@ -81,7 +81,7 @@ const Carousel = (props) => {
             aria-hidden="true"
           ></span>
           <span className="visually-hidden">Next</span>
-        </button>
+        </button> */}
       </div>
     </div>
   );

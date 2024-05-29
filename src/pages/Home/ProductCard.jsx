@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import quantityIcon from "../../assets/images/quantity.png";
 
-const ProductCard = (props) => {
+const ProductCard = ({ product }) => {
   const [rating, setRating] = useState(0);
 
   const ratingChanged = (newRating) => {
@@ -13,19 +13,19 @@ const ProductCard = (props) => {
     <div className="product-con">
       <div className="product-card shadow pb-2">
         <div className="img-div mb-2">
-          <img src={props.img} alt="product" />
+          <img src={product.imgSrc} alt="product" />
         </div>
-        <span>{props.description}</span>
-        <span>Rs {props.price}</span>
+        <span id="truncate">{product.description}</span>
+        <span id="price">&#8377; {product.price}</span>
       </div>
 
       {/* On hover */}
       <div className="product-info d-flex justify-content-start">
         <div className="info-img-div">
-          <img src={props.img} alt="product" />
+          <img src={product.imgSrc} alt="product" />
         </div>
         <div className="product-content">
-          <span>{props.description}</span>
+          <span>{product.description}</span>
           <div className="d-flex align-items-center">
             <ReactStars
               count={5}
@@ -39,14 +39,13 @@ const ProductCard = (props) => {
             <span>(32)reviews</span>
           </div>
 
-          <strong>Rs. {props.price}</strong>
+          <strong>&#8377; {product.price}</strong>
           <hr />
           <div className="quantity-con">
             <img src={quantityIcon} alt="quantity" />
             <small className="qty-span">1</small>
             <span>+</span>
             <span>-</span>
-            {/* <strong>Total:998</strong> */}
           </div>
           <button className="">Order Now</button>
         </div>
