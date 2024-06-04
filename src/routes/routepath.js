@@ -4,4 +4,5 @@ export const routePath = {
   login: "/login",
   about: "/about",
   contact: "/contact",
+  cart: "/cart",
 };

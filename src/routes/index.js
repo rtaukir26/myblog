@@ -9,6 +9,7 @@ import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
 import UnAuthorized from "../pages/UnAuthorized/UnAuthorized";
 import { getUserToken } from "../services/authService";
+import Cart from "../pages/Cart/Cart";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -40,6 +41,7 @@ const AppRoutes = () => {
           }
         >
           <Route path={routePath.root} element={<Home />} />
+          <Route path={routePath.cart} element={<Cart />} />
           <Route path={routePath.about} element={<About />} />
           <Route path={routePath.contact} element={<Contact />} />
         </Route>

@@ -13,7 +13,7 @@ export const loginUser = async (data) => {
 };
 //set token
 export const setLocaleUserToken = (userInfoAndToken) => {
-  const expirationTime = new Date().getTime() + 60 * 60 * 1000; // 1 hour from now
+  const expirationTime = new Date().getTime() + 8 * 60 * 60 * 1000; // 1 hour from now
   // const expirationTime = new Date().getTime() + 10 * 1000; // 10 sec from now
   let userToken = { ...userInfoAndToken, expirationTime }; //user details and token
   localStorage.setItem(authConstant.TOKEN, JSON.stringify(userToken));

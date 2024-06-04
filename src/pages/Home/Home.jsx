@@ -12,7 +12,7 @@ import palnt1Icon from "../../assets/images/product/palnt1.jpg";
 import palnt2Icon from "../../assets/images/product/palnt2.jpg";
 import Carousel from "../../components/Carousel/Carousel";
 import ProductCard from "./ProductCard";
-import { getAllProducts } from "../../services/homeService";
+import { getAllCartProduct, getAllProducts } from "../../services/homeService";
 import Loader from "../../components/Loader/Loader";
 import { toast } from "react-toastify";
 
@@ -20,32 +20,8 @@ const Home = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   console.log("allProducts", allProducts);
-  const data = [
-    {
-      name: "tiana",
-      price: 269,
-      photo: {
-        data: { type: "Buffer", data: [20, 143, 310] },
-        contentType: "image/jpeg",
-      },
-    },
-    {
-      name: "cecre",
-      price: 642,
-      photo: {
-        data: { type: "Buffer", data: [21, 123, 390] },
-        contentType: "image/jpeg",
-      },
-    },
-    {
-      name: "acyre",
-      price: 209,
-      photo: {
-        data: { type: "Buffer", data: [20, 123, 390] },
-        contentType: "image/jpeg",
-      },
-    },
-  ];
+
+  //Get all products data
   useEffect(() => {
     const bufferToBase64 = (buffer) => {
       const binary = buffer.reduce(
@@ -81,7 +57,7 @@ const Home = () => {
 
   return (
     <div className="main-body-container">
-      <Loader isLoading={isLoading} />
+      <Loader isLoading={false} />
       <div className="body-wrapper">
         <div className="home-wrapper">
           {/* carousel */}
