@@ -14,7 +14,7 @@
     background-image: url("../../assets/images/bg-contact.jpg");
     background-size: cover;
     background-position: center;
-    opacity: 0.7;
+    opacity: 1;
     z-index: -1;
     @include for-mobile {
       content: none;
@@ -63,13 +63,15 @@
       .col {
         display: flex;
         align-items: flex-start;
-        // margin-bottom: 5px;
         color: $text-white-only;
         padding: 10px;
         border-bottom: 1px solid #89afad;
         div {
           width: 70%;
           margin-left: 7px;
+        }
+        img {
+          filter: invert(1);
         }
       }
     }
@@ -86,7 +88,7 @@
           margin: auto;
           display: grid;
           place-items: center;
-          background: linear-gradient(45deg, #34d7e1, #7a047c);
+          background: linear-gradient(45deg, #c8e7e70a, #fff9f99e);
           width: 60%;
           padding: 10px;
           border-radius: 5px;
@@ -118,11 +120,11 @@
             &[type="email"],
             &[type="password"] {
               background: #00000000;
-              color: #fff;
+              color: $text-white-only;
               border-bottom: 1px solid;
             }
             &::placeholder {
-              color: #d4cbcb;
+              color: $text-white-only;
             }
           }
 
@@ -147,13 +149,13 @@
             border: none;
             border: 1px solid #e3d2d5;
             background: #00000000;
-            color: #fff;
+            color: $text-white-only;
             width: 100%;
             height: 70px;
             resize: none;
             outline: none;
             &::placeholder {
-              color: #e6dcdc;
+              color: $text-white-only;
             }
           }
           img {

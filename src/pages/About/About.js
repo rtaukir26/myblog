@@ -1,4 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, {
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import aboutImg from "../../assets/images/aboutGif.webp";
 import BrandIcon from "../../assets/images/bgBrand.png";
 import pHnMIcon from "../../assets/images/pHM.avif";
@@ -29,15 +36,33 @@ const About = () => {
       },
     });
 
-  AOS.init({
-    offset: 120,
-    // delay: 0, // values from 0 to 3000, with step 50ms
-    // duration: 400, // values from 0 to 3000, with step 50ms
-    // easing: "ease", // default easing for AOS animations
-    // once: false, // whether animation should happen only once - while scrolling down
-    // mirror: false, // whether elements should animate out while scrolling past them
-    // anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
-  });
+  useEffect(() => {
+    AOS.init({
+      offset: 120,
+      // delay: 0, // values from 0 to 3000, with step 50ms
+      // duration: 400, // values from 0 to 3000, with step 50ms
+      // easing: "ease", // default easing for AOS animations
+      // once: false, // whether animation should happen only once - while scrolling down
+      // mirror: false, // whether elements should animate out while scrolling past them
+      // anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+    });
+    AOS.refresh(); // Reinitialize AOS if content is dynamic
+  }, []);
+
+  const [count, setCount] = useState(0);
+  const [addc, setAdd] = useState(0);
+  // const hadleIncreaseCount = useMemo(() => {
+  //   console.log("object");
+  //   return addc * 2;
+  // }, [addc]);
+
+  // const add = () => {
+  //   setAdd(addc + 1);
+  // };
+
+  // const add = useCallback(() => {
+  //   setAdd(addc + 1);
+  // }, [addc]);
 
   return (
     <div className="main-body-container">
@@ -47,7 +72,11 @@ const About = () => {
           <div className="hero-con">
             <div className="about-left">
               <div className="content">
-                <h4>Welcome to ZN Word</h4>
+                <h4>
+                  Welcome to ZN Word
+                  {/* {count} {addc} multi:{hadleIncreaseCount} */}
+                </h4>
+
                 <p>
                   At ZN Word, we're passionate about empowering writers,
                   students, and professionals to express their ideas with
@@ -55,7 +84,8 @@ const About = () => {
                   and powerful tools that enhance the writing experience, making
                   it easier htmlFor users to bring their words to life.
                 </p>
-                <button>Read More</button>
+                <button onClick={() => setCount(count + 1)}>Read More</button>
+                <button onClick={() => setAdd(addc + 10)}>Add</button>
               </div>
               <div className="content">
                 <h4>Our Inspiration</h4>

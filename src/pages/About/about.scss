@@ -113,6 +113,7 @@
 }
 
 .business-con {
+  position: relative;
   &::before {
     content: "";
     background-image: url("../../assets/images/partnersBg.jpg");

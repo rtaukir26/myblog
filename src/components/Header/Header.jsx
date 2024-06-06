@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 // import BrandIcon from "../../assets/images/brandLogo.avif";
 import BrandIcon from "../../assets/images/brandLogo.png";
 import userIcon from "../../assets/images/profile.png";
@@ -10,10 +10,10 @@ import { routePath } from "../../routes/routepath";
 import { useSelector } from "react-redux";
 
 const Header = () => {
+  const navigate = useNavigate();
   let theme = localStorage.getItem("theme-mode");
 
   const cartAllDataRedux = useSelector((state) => state.cartSlice);
-
 
   const [isLightTheme, setIsLightTheme] = useState(
     theme === "dark-mode" ? false : true
@@ -32,6 +32,9 @@ const Header = () => {
       localStorage.setItem("theme-mode", "light-mode");
       setIsLightTheme(true);
     }
+  };
+  const handleLogout = () => {
+    navigate(routePath.login);
   };
   return (
     <div>
@@ -66,6 +69,14 @@ const Header = () => {
                     to={routePath.contact}
                   >
                     Contact
+                  </NavLink>
+                </li>
+                <li className="mx-2">
+                  <NavLink
+                    className="text-white text-decoration-none"
+                    to={routePath.review}
+                  >
+                    Review
                   </NavLink>
                 </li>
               </ul>
@@ -120,7 +131,7 @@ const Header = () => {
 
                   <div className="user-bottom">
                     <img src={logoutIcon} alt="logout" />
-                    <span>Logout</span>
+                    <span onClick={handleLogout}>Logout</span>
                   </div>
                 </div>
               </div>

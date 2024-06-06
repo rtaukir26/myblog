@@ -1,0 +1,14 @@
+.address-container {
+  background: #fff;
+  width: 500px;
+  img {
+    cursor: pointer;
+    width: 30px;
+    filter: drop-shadow(4px 4px 10px #b3acac);
+  }
+  .address-div {
+    span {
+      margin-right: 5px;
+    }
+  }
+}

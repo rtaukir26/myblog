@@ -5,4 +5,5 @@ export const routePath = {
   about: "/about",
   contact: "/contact",
   cart: "/cart",
+  review: "/review",
 };

@@ -12,6 +12,19 @@
       .toggle-hide {
         width: 50%;
         transition: all 0.5s ease;
+        .carousel {
+          min-height: 400px;
+          max-height: 400px;
+          overflow: hidden;
+          border-radius: 2%;
+          width: 480px;
+          background: #ffffff00;
+          display: grid;
+          place-items: center;
+          img {
+            width: 100%;
+          }
+        }
       }
       &.contentCollapse {
         width: 50%;

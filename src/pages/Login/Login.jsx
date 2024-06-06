@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import LoginForm from "../../components/Form/LoginForm";
 import Signup from "../../components/Signup/Signup";
+import productImg from "../../assets/images/product/palnt2.jpg";
+import productCarImg from "../../assets/images/product/car.jpg";
+import productCar2Img from "../../assets/images/product/car2.jpg";
+import productIcecreamImg from "../../assets/images/product/icecream.jpg";
+import productPlantImg from "../../assets/images/product/plant5.jpg";
+import Carousel from "../../components/Carousel/Carousel";
 
 const Login = () => {
   const [isCollapse, setIsCollapse] = useState(false);
@@ -32,29 +38,23 @@ const Login = () => {
             <div className="pt-5 ps-5 toggle-hide">
               <h2>Get ready to be a first customer and get more coupans</h2>
               <p>Your one-stop online shop for everything you need!</p>
-              <h5>Why Shop with Us?</h5>
-              <ul>
-                <li>
-                  <h5>Wide Range of Products</h5>
-                  <p>From electronics to fashion, we have it all.</p>
-                </li>
-                <li>
-                  <h5>Exclusive Deals</h5>
-                  <p>Enjoy unbeatable discounts and offers.</p>
-                </li>
-                <li>
-                  <h5>Fast and Reliable Delivery</h5>
-                  <p>Get your orders delivered to your doorstep in no time.</p>
-                </li>
-                <li>
-                  <h5>Secure Payment Options</h5>
-                  <p>Shop with confidence with our secure payment methods.</p>
-                </li>
-                <li>
-                  <h5>24/7 Customer Support</h5>
-                  <p>We’re here to help you anytime, anywhere.</p>
-                </li>
-              </ul>
+              <div className="carousel">
+                <Carousel
+                  // img={{
+                  //   img1: productCarImg,
+                  //   img2: productPlantImg,
+                  //   img3: productIcecreamImg,
+                  // }}
+                  img={[
+                    productCarImg,
+                    productPlantImg,
+                    productIcecreamImg,
+                    productCar2Img,
+                  ]}
+                  indicatorId="carouselIndicators1"
+                  duration="9000"
+                />
+              </div>
             </div>
           ) : (
             // Signup comp - No bootstrap/No form tag

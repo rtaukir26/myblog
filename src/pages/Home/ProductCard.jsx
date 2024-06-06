@@ -82,10 +82,10 @@ const ProductCard = ({ product }) => {
             <small className="qty-span">{qty}</small>
             <span onClick={handleQtyIncr}>+</span>
             <span onClick={handleQtyDecr}>-</span>
+            <button onClick={() => handleClickAddToCart(product._id)}>
+              Order Now
+            </button>
           </div>
-          <button onClick={() => handleClickAddToCart(product._id)}>
-            Order Now
-          </button>
         </div>
       </div>
     </div>

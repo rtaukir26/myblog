@@ -53,8 +53,8 @@ const Contact = () => {
       <div className="body-wrapper">
         <div className="contact-wrapper">
           <div className="contact-header">
-            <h5>Contact Us</h5>
-            <p>
+            <h5 className="text-white">Contact Us</h5>
+            <p className="text-white">
               Thank you for your interest in contacting us. Please feel free to
               reach out to us using the information provided below. We look
               forward to hearing from you!

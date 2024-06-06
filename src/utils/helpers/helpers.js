@@ -20,17 +20,17 @@ export const buffertoBase64Image = (data) => {
 export const incIndexAllProduct = (indexAllProduct, callback) => {
   let ind = indexAllProduct;
   const maxIndex = 5;
-  const step = 0.1; // Smaller increment for smoother transition
-  const intervalTime = 50; // Smaller interval time for smoother transition
+  const step = 0.1;
+  const intervalTime = 50;
 
   const intervalId = setInterval(() => {
     if (ind < maxIndex) {
       ind += step;
-      const value = Math.min(ind, maxIndex); // Ensure indexAllProduct does not exceed maxIndex
-      callback(value); // Call the callback function with the updated value
+      const value = Math.min(ind, maxIndex);
+      callback(value);
     } else {
       clearInterval(intervalId);
-      callback(maxIndex); // Call the callback function with the maxIndex value
+      callback(maxIndex);
     }
   }, intervalTime);
 };

@@ -6,56 +6,43 @@ const Carousel = (props) => {
       <div
         id={props.indicatorId}
         className="carousel slide"
-        //   className={`carousel slide ${props.isActive ? "active" : ""}`}
         data-bs-ride="carousel"
-        //   data-interval="1000"
-        data-bs-interval="9000" //bootstrap 4, 5
+        data-bs-interval={props.duration} //bootstrap 4, 5
       >
         <div className="carousel-indicators">
-          <button
+          {props.img?.map((item, i) => (
+            <button
+              type="button"
+              data-bs-target={`#${props.indicatorId}`}
+              data-bs-slide-to={i}
+              className="active"
+              aria-current="true"
+              aria-label={`Slide ${i + 1}`}
+            ></button>
+          ))}
+          {/* <button
             type="button"
             data-bs-target={`#${props.indicatorId}`}
             data-bs-slide-to="0"
             className="active"
             aria-current="true"
             aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target={`#${props.indicatorId}`}
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target={`#${props.indicatorId}`}
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
+          ></button> */}
         </div>
         {/* images */}
         <div className="carousel-inner">
-          <div className="carousel-item active">
+          {props.img?.map((item, i) => (
+            <div className={`carousel-item ${i === 0 && "active"}`}>
+              <img src={item} className="d-block w-100" alt="carousel" />
+            </div>
+          ))}
+          {/* <div className="carousel-item active">
             <img
               src={props.img.img1}
               className="d-block w-100"
               alt="carousel"
             />
-          </div>
-          <div className="carousel-item">
-            <img
-              src={props.img.img2}
-              className="d-block w-100"
-              alt="carousel"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src={props.img.img3}
-              className="d-block w-100"
-              alt="carousel"
-            />
-          </div>
+          </div> */}
         </div>
 
         {/* <button

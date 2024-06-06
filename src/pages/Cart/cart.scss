@@ -98,6 +98,7 @@
     }
   }
   .cart-content {
+    position: relative;
     width: 40%;
     .sub-content {
       height: 175px;
@@ -134,9 +135,47 @@
       border-radius: 10px 2px 0px;
       font-size: 15px;
       width: 200px;
-      &:last-child {
+      &.btn-order {
         background: #63b2fd82;
-        border-radius: 25px 0px 25px 0px;
+        border-radius: 25px 0px 0px 0px;
+      }
+    }
+    .checkbox-con {
+      position: absolute;
+      top: -16px;
+      right: 0;
+      background: #58aee5;
+      width: 70px;
+      height: 40px;
+      border-radius: 0px 0px 0px 50px;
+      display: grid;
+      place-items: center;
+      input {
+        appearance: none;
+        position: relative;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #ffffff; /* Default border color */
+        border-radius: 4px;
+        outline: none;
+        margin-left: 15px;
+
+        // &:checked {
+        //   // border-color: #ffffff;
+        //   background-color: #2196f3;
+        // }
+        &:checked::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 6px;
+          height: 12px;
+          border: solid #ffffff;
+          border-width: 0 2px 2px 0;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
       }
     }
   }

@@ -10,6 +10,7 @@ import Login from "../pages/Login/Login";
 import UnAuthorized from "../pages/UnAuthorized/UnAuthorized";
 import { getUserToken } from "../services/authService";
 import Cart from "../pages/Cart/Cart";
+import Review from "../pages/Review/Review";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -44,6 +45,7 @@ const AppRoutes = () => {
           <Route path={routePath.cart} element={<Cart />} />
           <Route path={routePath.about} element={<About />} />
           <Route path={routePath.contact} element={<Contact />} />
+          <Route path={routePath.review} element={<Review />} />
         </Route>
       </Routes>
     </Router>

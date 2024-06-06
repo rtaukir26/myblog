@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
 import carousel1 from "../../assets/images/carousel/travel1.jpg";
-import carousel2 from "../../assets/images/carousel/shopping1.jpg";
+import carousel2 from "../../assets/images/product/icecream.jpg";
 import carousel3 from "../../assets/images/carousel/food.jpg";
 import carousel4 from "../../assets/images/carousel/light1.webp";
 import searchIcon from "../../assets/images/search.png";
-import light1Icon from "../../assets/images/product/light1.png";
-import light2Icon from "../../assets/images/product/light2.png";
-import watch1Icon from "../../assets/images/product/watch1.jpg";
-import watch2Icon from "../../assets/images/product/watch2.jpg";
-import palnt1Icon from "../../assets/images/product/palnt1.jpg";
-import palnt2Icon from "../../assets/images/product/palnt2.jpg";
 import Carousel from "../../components/Carousel/Carousel";
 import ProductCard from "./ProductCard";
 import { getAllCartProduct, getAllProducts } from "../../services/homeService";
@@ -57,7 +51,7 @@ const Home = () => {
 
   return (
     <div className="main-body-container">
-      <Loader isLoading={false} />
+      <Loader isLoading={isLoading} />
       <div className="body-wrapper">
         <div className="home-wrapper">
           {/* carousel */}
@@ -74,16 +68,16 @@ const Home = () => {
 
             <div className="right d-flex justify-content-end">
               <Carousel
-                img={{ img1: carousel1, img2: carousel2, img3: carousel4 }}
+                // img={{ img1: carousel1, img2: carousel2, img3: carousel4 }}
+                img={[carousel1, carousel2, carousel4]}
                 indicatorId="carouselIndicators1"
-                // delayTime={activeCarousel}
-                // isActive={activeCarousel === 1 ? true : false}
+                duration="9000"
               />
               <Carousel
-                img={{ img1: carousel3, img2: carousel1, img3: carousel4 }}
+                // img={{ img1: carousel3, img2: carousel1, img3: carousel4 }}
+                img={[carousel3, carousel1, carousel4]}
                 indicatorId="carouselIndicators2"
-                // delayTime={activeCarousel}
-                // isActive={activeCarousel === 2 ? true : false}
+                duration="9000"
               />
             </div>
           </div>
