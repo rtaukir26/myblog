@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import React, { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 import { routePath } from "./routepath";
 import { getUserToken } from "../services/authService";
 
 const PrivateRoute = ({ children }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const userIdToken = getUserToken(); //get token from localeStorage
   // const userIdToken = true;

@@ -1,17 +1,6 @@
-import React, {
-  memo,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import aboutImg from "../../assets/images/aboutGif.webp";
-import BrandIcon from "../../assets/images/bgBrand.png";
+import React, { useEffect, useState } from "react";
 import pHnMIcon from "../../assets/images/pHM.avif";
-import pLevisIcon from "../../assets/images/pLevis.webp";
 import pSonyIcon from "../../assets/images/pSony-Ericsson.png";
-import pCompIcon from "../../assets/images/pcomp2.png";
 import pStartIcon from "../../assets/images/pstarbugs.jpg";
 import aboutImg2 from "../../assets/images/aboutGif2.gif";
 import creativityImg from "../../assets/images/creativity-concept.avif";
@@ -27,14 +16,13 @@ import AboutForm from "../../components/Form/AboutForm";
 
 const initialValues = { name: "", email: "", feedback: "" };
 const About = () => {
-  const { values, errors, handleChange, handleSubmit, handleBlur, touched } =
-    useFormik({
-      initialValues: initialValues,
-      validationSchema: aboutSchema,
-      onSubmit: (values) => {
-        console.log("values", values);
-      },
-    });
+  const { values, errors, handleSubmit, touched } = useFormik({
+    initialValues: initialValues,
+    validationSchema: aboutSchema,
+    onSubmit: (values) => {
+      console.log("values", values);
+    },
+  });
 
   useEffect(() => {
     AOS.init({

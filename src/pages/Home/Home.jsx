@@ -6,7 +6,7 @@ import carousel4 from "../../assets/images/carousel/light1.webp";
 import searchIcon from "../../assets/images/search.png";
 import Carousel from "../../components/Carousel/Carousel";
 import ProductCard from "./ProductCard";
-import { getAllCartProduct, getAllProducts } from "../../services/homeService";
+import { getAllProducts } from "../../services/homeService";
 import Loader from "../../components/Loader/Loader";
 import { toast } from "react-toastify";
 

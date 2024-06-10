@@ -3,8 +3,6 @@ import userIcon from "../../assets/images/user2.png";
 import emailIcon from "../../assets/images/email.png";
 import pwdIcon from "../../assets/images/lock.png";
 import contactIcon from "../../assets/images/contactIcon.png";
-import eyeIcon from "../../assets/images/view.png";
-import eyelashIcon from "../../assets/images/hidden.png";
 import { Input, InputRadio } from "../Form/Input";
 
 const Signup = (props) => {

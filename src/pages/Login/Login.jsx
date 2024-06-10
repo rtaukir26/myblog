@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import LoginForm from "../../components/Form/LoginForm";
 import Signup from "../../components/Signup/Signup";
-import productImg from "../../assets/images/product/palnt2.jpg";
 import productCarImg from "../../assets/images/product/car.jpg";
 import productCar2Img from "../../assets/images/product/car2.jpg";
 import productIcecreamImg from "../../assets/images/product/icecream.jpg";

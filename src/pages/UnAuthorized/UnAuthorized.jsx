@@ -19,7 +19,7 @@ const UnAuthorized = () => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [navigate, seconds]); //Dependencies No required
   return (
     <div className="page-not-found">
       <div className="page-not-found-container">

@@ -47,7 +47,7 @@ const Cart = () => {
       }
     };
     fetchCartData();
-  }, []);
+  }, [dispatch]);
 
   //handle Order progress status
   const handleOrderAllProduct = (progressStatus) => {

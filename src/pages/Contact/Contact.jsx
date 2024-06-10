@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
 import { commonImages } from "../../utils/images";
 import NameIcon from "../../assets/images/profile.png";
 import EmailIcon from "../../assets/images/email2.png";
-import AgeIcon from "../../assets/images/age-group.png";
-import CahtIcon from "../../assets/images/chat.png";
+
 import { contactSchema } from "../../utils/schema/contactSchema";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";

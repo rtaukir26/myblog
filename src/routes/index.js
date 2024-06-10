@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import CommonOutlet from "./CommonOutlet";
@@ -8,7 +8,6 @@ import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
 import UnAuthorized from "../pages/UnAuthorized/UnAuthorized";
-import { getUserToken } from "../services/authService";
 import Cart from "../pages/Cart/Cart";
 import Review from "../pages/Review/Review";
 

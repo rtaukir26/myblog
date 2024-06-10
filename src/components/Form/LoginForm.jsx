@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import { loginUser, setLocaleUserToken } from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 import { routePath } from "../../routes/routepath";
-import { authConstant } from "../../utils/constant";
+// import { authConstant } from "../../utils/constant";
 
 const LoginForm = () => {
   let initialFormState = {
@@ -79,7 +79,7 @@ const LoginForm = () => {
 
   //handel focus
   const handleFocus = (e) => {
-    let { name, value } = e.target;
+    let { name } = e.target;
     let allErrors = { ...userPostDetails };
     delete allErrors.errors[name];
     setUserPostDetails(allErrors);
