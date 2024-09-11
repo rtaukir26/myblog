@@ -6,6 +6,10 @@ import userIcon from "../../assets/images/profile.png";
 import editIcon from "../../assets/images/edit.png";
 import logoutIcon from "../../assets/images/logoutIcon.png";
 import cartIcon from "../../assets/images/cart.png";
+import homeIcon from "../../assets/images/header/home2.png";
+import aboutIcon from "../../assets/images/header/about2.png";
+import contactIcon from "../../assets/images/header/contact2.png";
+import reviewIcon from "../../assets/images/header/satisfaction.png";
 import { routePath } from "../../routes/routepath";
 import { useSelector } from "react-redux";
 
@@ -45,40 +49,52 @@ const Header = () => {
               <img src={BrandIcon} alt="logo" className="brand-logo" />
             </NavLink>
             <div className="">
-              <ul className="d-flex align-items-center list-unstyled">
-                <li className="mx-2 ">
-                  <NavLink
-                    className="text-white text-decoration-none"
-                    aria-current="page"
-                    to={routePath.root}
-                  >
-                    Home
-                  </NavLink>
-                </li>
-                <li className="mx-2">
-                  <NavLink
-                    className="text-white text-decoration-none"
-                    to={routePath.about}
-                  >
-                    About
-                  </NavLink>
-                </li>
-                <li className="mx-2">
-                  <NavLink
-                    className="text-white text-decoration-none"
-                    to={routePath.contact}
-                  >
-                    Contact
-                  </NavLink>
-                </li>
-                <li className="mx-2">
-                  <NavLink
-                    className="text-white text-decoration-none"
-                    to={routePath.review}
-                  >
-                    Review
-                  </NavLink>
-                </li>
+              <ul className="menu-ul list-unstyled m-0">
+                <NavLink
+                  className="text-white text-decoration-none mx-2"
+                  aria-current="page"
+                  to={routePath.root}
+                >
+                  <li className=" ">
+                    <div>
+                      <img src={homeIcon} alt="home" />
+                    </div>
+                    <span>Home</span>
+                  </li>
+                </NavLink>
+                <NavLink
+                  className="text-white text-decoration-none mx-2"
+                  to={routePath.about}
+                >
+                  <li className="">
+                    <div>
+                      <img src={aboutIcon} alt="about" />
+                    </div>
+                    <span>About</span>
+                  </li>
+                </NavLink>
+                <NavLink
+                  className="text-white text-decoration-none mx-2"
+                  to={routePath.contact}
+                >
+                  <li className="">
+                    <div>
+                      <img src={contactIcon} alt="contact" />
+                    </div>
+                    <span>Contact</span>
+                  </li>
+                </NavLink>
+                <NavLink
+                  className="text-white text-decoration-none mx-2"
+                  to={routePath.review}
+                >
+                  <li className="">
+                    <div>
+                      <img src={reviewIcon} alt="review" />
+                    </div>
+                    <span>Review</span>
+                  </li>
+                </NavLink>
               </ul>
             </div>
           </div>

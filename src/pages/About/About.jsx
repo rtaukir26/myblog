@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import pHnMIcon from "../../assets/images/pHM.avif";
 import pSonyIcon from "../../assets/images/pSony-Ericsson.png";
 import pStartIcon from "../../assets/images/pstarbugs.jpg";
+import aboutImg from "../../assets/images/aboutGif3.gif";
 import aboutImg2 from "../../assets/images/aboutGif2.gif";
+import aboutImg3 from "../../assets/images/aboutGif.webp";
+import aboutImg4 from "../../assets/images/about-us.gif";
 import creativityImg from "../../assets/images/creativity-concept.avif";
 import innovativeImg from "../../assets/images/innovative.avif";
 import internshipImg from "../../assets/images/internship.avif";
@@ -90,7 +93,21 @@ const About = () => {
 
             {/* Right side - about image */}
             <div className="about-right">
-              <img src={aboutImg2} alt="about" className="about-img" />
+              {/* <img src={aboutImg2} alt="about" className="about-img" /> */}
+              <div className="slider-con" style={{ "--quantity": 4 }}>
+                <div className="item" style={{ "--position": 1 }}>
+                  <img src={aboutImg2} alt="about" className="about-img" />
+                </div>
+                <div className="item" style={{ "--position": 2 }}>
+                  <img src={aboutImg3} alt="about" className="about-img" />
+                </div>
+                <div className="item" style={{ "--position": 3 }}>
+                  <img src={aboutImg} alt="about" className="about-img" />
+                </div>
+                <div className="item" style={{ "--position": 4 }}>
+                  <img src={aboutImg4} alt="about" className="about-img" />
+                </div>
+              </div>
             </div>
           </div>
 

@@ -2,6 +2,114 @@
   background-image: linear-gradient(175deg, #399fe0, transparent);
 }
 
+// Menu - active
+a {
+  &.active {
+    li {
+      div {
+        transform: translateY(-15px);
+        position: relative;
+        border: 5px solid #55ade5;
+        background: #55ade5;
+        &::before {
+          content: "";
+          position: absolute;
+          height: 10px;
+          width: 13px;
+          background: #ffffff;
+          top: 6px;
+          left: -18px;
+          border-radius: 0px 10px 0px 0px;
+          box-shadow: 2px -5px 0px 2px #50aae4;
+          transition: all 0.3s ease;
+        }
+        &::after {
+          content: "";
+
+          position: absolute;
+          height: 10px;
+          width: 13px;
+          background: #ffffff;
+          top: 6px;
+          right: -18px;
+          border-radius: 10px 0px 0px 0px;
+          box-shadow: -2px -5px 0px 2px #50aae4;
+          transition: all 0.3s ease;
+        }
+      }
+      span {
+        visibility: visible;
+        transform: translateY(-15px);
+      }
+    }
+  }
+}
+
+.menu-ul {
+  background: #fff;
+  border-radius: 50px;
+  position: relative;
+  width: 260px;
+  padding: 4px 20px !important;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  li {
+    position: relative;
+    div {
+      transition: all 0.3s ease;
+      border: 5px solid #fff;
+      background: #fff;
+      border-radius: 50%;
+      height: 35px;
+      width: 35px;
+    }
+    span {
+      position: absolute;
+      visibility: collapse;
+      color: #084368;
+      font-size: 13px;
+      font-weight: bold;
+      transform: translateY(6px);
+      transition: all 0.3s linear;
+    }
+    &:hover {
+      div {
+        transform: translateY(-15px);
+      }
+      span {
+        visibility: visible;
+        transform: translateY(-15px);
+      }
+    }
+
+    /* trending effect*/
+
+    // &:hover::before {
+    //   position: absolute;
+    //   content: "";
+    // width: 30px;
+    // height: 10px;
+    // background: linear-gradient(173deg, #f9f9f9, transparent);
+    // transform: rotate(15deg);
+    // top: 5%;
+    // opacity: 0.3;
+    // border-radius: 10%;
+    // animation: hoverAnimation 1s linear;
+    // }
+  }
+}
+
+// @keyframes hoverAnimation {
+//   0% {
+//     left: 0%;
+//   }
+//   100% {
+//     left: 50%;
+//   }
+// }
+
 .brand-logo {
   width: 50px;
 }

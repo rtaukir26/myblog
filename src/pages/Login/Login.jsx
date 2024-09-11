@@ -79,7 +79,10 @@ const Login = () => {
                 </button>
               </div>
             ) : (
-              <div className="col text-center">
+              <div className="col text-center animate_con">
+                <div className="div1"></div>
+                <div className="div2"></div>
+                <div className="div3"></div>
                 <h2>Sign Up to keep connected with us!</h2>
                 <p>
                   To keep connected with us, please login with your personal

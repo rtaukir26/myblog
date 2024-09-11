@@ -11,6 +11,7 @@ export const buffertoBase64Image = (data) => {
   let modifyData = data.map((product) => {
     const base64String = bufferToBase64(product.product.photo.data.data);
     const imgSrc = `data:${product.product.photo.contentType};base64,${base64String}`;
+    delete product.product.photo
     return { ...product, imgSrc };
   });
   return modifyData;

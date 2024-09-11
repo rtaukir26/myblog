@@ -9,12 +9,17 @@ import ProductCard from "./ProductCard";
 import { getAllProducts } from "../../services/homeService";
 import Loader from "../../components/Loader/Loader";
 import { toast } from "react-toastify";
+import { PRODUCT } from "../../constant";
+import { useDispatch, useSelector } from "react-redux";
+import { setAllProductsRedux } from "../../redux/home.slice";
 
 const Home = () => {
-  const [allProducts, setAllProducts] = useState([]);
+  const allProducts = useSelector((state) => state.allProductsSlice);
   const [isLoading, setIsLoading] = useState(false);
   console.log("allProducts", allProducts);
+  const dispatch = useDispatch();
 
+  
   //Get all products data
   useEffect(() => {
     const bufferToBase64 = (buffer) => {
@@ -33,9 +38,10 @@ const Home = () => {
           const modifiedData = res.data.product.map((product) => {
             const base64String = bufferToBase64(product.photo.data.data);
             const imgSrc = `data:${product.photo.contentType};base64,${base64String}`;
+            delete product.photo;
             return { ...product, imgSrc };
           });
-          setAllProducts(modifiedData);
+          dispatch(setAllProductsRedux(modifiedData));
         } else {
           setIsLoading(false);
           toast.error("Something went wrong");
@@ -45,8 +51,9 @@ const Home = () => {
         toast.error("Something went wrong");
       }
     };
-
-    fetchData();
+    if (allProducts?.length < 1) {
+      fetchData();
+    }
   }, []);
 
   return (

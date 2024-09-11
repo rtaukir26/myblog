@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import cartSlice from "./cartPage.slice";
 import isLoadingSlice from "./isLoading.slice";
+import allProductsSlice from "./home.slice";
 
 const store = configureStore({
   reducer: {
     cartSlice: cartSlice.reducer,
     isLoadingSlice: isLoadingSlice.reducer,
+    allProductsSlice: allProductsSlice.reducer,
   },
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
   middleware: (getDefaultMiddleware) =>

@@ -5,6 +5,7 @@ import "react-calendar/dist/Calendar.css";
 import CancelIcon from "../../assets/images/cancel.png";
 import CalendarIcon from "../../assets/images/calendar.png";
 import { toast } from "react-toastify";
+import DraggableComp from "./DraggableComp";
 // import { ReactComponent as ClearIcon } from "../../assets/images/cancel.png";
 
 const Review = () => {
@@ -210,6 +211,15 @@ const Review = () => {
                 <img src={selectedFile} alt="file" style={{ width: "400px" }} />
               )}
             </div>
+          </div>
+
+          {/* Draggable comp */}
+          <h5 className="mt-4 ">Draggable component</h5>
+          <DraggableComp />
+
+          {/* Tending effect */}
+          <div className="tending-effect-con border rounded">
+            <div className="tending-effect-card rounded"></div>
           </div>
         </div>
       </div>
